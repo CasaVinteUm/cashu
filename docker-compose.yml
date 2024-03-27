@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  cashu:
+    image: cashubtc/nutshell:0.15.2
+    command: poetry run mint
+    environment:
+      TOR: "false"
+      MINT_INFO_NAME: "Casa21 Cashu"
+      MINT_INFO_DESCRIPTION: "Casa21 Cashu Mint"
+      MINT_INFO_DESCRIPTION_LONG: "Casa21 Cashu Mint"
+      MINT_INFO_CONTACT: "[[\"email\",\"cashu@casa21.space\"], [\"twitter\",\"@jaonoctus\"]]"
+      CASHU_DIR: "/data/cashu"
+      MINT_DATABASE: "/data/db"
+      MINT_PRIVATE_KEY: "NOT_HERE_LOL"
+      MINT_BACKEND_BOLT11_SAT: "LndRestWallet"
+      MINT_LISTEN_HOST: "0.0.0.0"
+      MINT_LISTEN_PORT: "3338"
+      MINT_LND_REST_ENDPOINT: "https://10.11.12.62:8086"
+      MINT_LND_REST_CERT: "/data/lnd_credentials/tls.cert"
+      MINT_LND_REST_MACAROON: "/data/lnd_credentials/admin.macaroon"
+    ports:
+      - 3338:3338
+    volumes:
+      - cashu:/data/cashu
+      - cashu_db:/data/db
+      - cashu_lnd_credentials:/data/lnd_credentials
+volumes:
+  cashu:
+  cashu_db:
+  cashu_lnd_credentials:
+
