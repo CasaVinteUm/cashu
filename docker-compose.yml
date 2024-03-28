@@ -12,7 +12,7 @@ services:
       MINT_INFO_CONTACT: "[[\"email\",\"cashu@casa21.space\"], [\"twitter\",\"@jaonoctus\"]]"
       CASHU_DIR: "/data/cashu"
       MINT_DATABASE: "/data/db"
-      MINT_PRIVATE_KEY: "NOT_HERE_LOL"
+      MINT_PRIVATE_KEY: "$MINT_PRIVATE_KEY"
       MINT_BACKEND_BOLT11_SAT: "LndRestWallet"
       MINT_LISTEN_HOST: "0.0.0.0"
       MINT_LISTEN_PORT: "3338"
@@ -29,4 +29,3 @@ volumes:
   cashu:
   cashu_db:
   cashu_lnd_credentials:
-
